@@ -1,0 +1,26 @@
+{% extends "orders/base.html" %}
+{% block content %}
+  <h2>Cart</h2>
+
+  {%for x in orders %}
+     <li>  
+     {{ x.name }}<a class="btn btn-danger" href="{% url 'remove' x.id x.name%}" role="button">remove</a>   
+   </li>
+   {%for x in x.topps.all %}
+   <ul style="list-style: none;">
+   <li>  
+   Topping  : {{ x }}
+ </li>
+</ul>
+ {% endfor %}
+ {% endfor %}
+
+ <div id="total">
+   {%for x in total %}
+   <h3>Total Price : {{ x|floatformat:2 }}</h3>
+   {% endfor %}
+   <a class="btn btn-success"href="{% url 'confirm'%}">Confirm order</a>
+  </div>   
+{% endblock content %}
+
+  

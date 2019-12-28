@@ -1,0 +1,107 @@
+{% extends "orders/base.html" %}
+{% block content %}
+<h1>Salads</h1>
+<table class="table table-hover">
+<thead class='thead-light'>
+     <tr >
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for x in salads %} 
+        <tr>
+            {% load static %}
+            <td>{{x.name}}</td>
+            <td>${{x.price}}<a href="{% url 'add1' x.name x.price %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    <h1>Pasta</h1>
+    <table class="table table-hover">
+            <thead class='thead-light'>
+                <tr >
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in pastas %} 
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>${{x.price}}<a href="{% url 'add1' x.name x.price %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+                </tr>
+                {% endfor %}
+        </tbody>
+        </table>
+
+
+    <h1>Regular Pizza</h1>        
+    <table class="table table-hover">
+            <thead class='thead-light'>
+                <tr >
+    <thead class='thead-light'>
+            <tr >
+                <th>Name</th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in pizza1 %} 
+            <tr>
+                <td>{{x.name}}</td>
+                
+                    <td>${{x.small}}<a href="{% url 'add1' x.name x.small %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+                
+                <td>${{x.large}}<a href="{% url 'add1' x.name x.large %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+        </table>
+
+        <h1>Sicilian Pizza</h1>        
+    <table class="table table-hover">
+            <thead class='thead-light'>
+                <tr >
+    <thead class='thead-light'>
+            <tr >
+                <th>Name</th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in pizza2 %} 
+            <tr>
+                <td>{{x.name}}</td>
+                
+                    <td>${{x.small}}<a href="{% url 'add1' x.name x.small %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+                
+                <td>${{x.large}}<a href="{% url 'add1' x.name x.large %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+        </table>
+        
+        <h1>Toppings</h1>
+        <table class="table table-hover">
+                <thead class='thead-light'>
+                    <tr >
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in toppings %} 
+                    <tr>
+                        <td>{{x.name}}<a href="{% url 'add2' x.name %}"><img class='plus' src="{% static 'orders/cart2.png' %}"></a></td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+            </table>
+    
+{%endblock%}

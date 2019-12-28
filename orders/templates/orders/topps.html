@@ -1,0 +1,11 @@
+{% extends "orders/base.html" %}
+{% block content %}
+  <h2>Choose your toppings</h2>
+
+  {%for x in toppings %}
+     <li>  
+     {{ x.name }} <a href="{% url 'add1' x.name %}">
+   </li>
+   {% endfor %}
+   <h3>{{topps_allowed }}</h3>
+{% endblock content %}
