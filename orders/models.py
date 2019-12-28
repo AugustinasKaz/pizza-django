@@ -8,7 +8,7 @@ class Topping(models.Model):
     name = models.CharField(max_length=64)
 
     def __str__(self):
-        return f'{self.name}'
+        return "{}".format({self.name})
 
 
 class Regular_Pizza(models.Model):
@@ -17,7 +17,7 @@ class Regular_Pizza(models.Model):
     large = models.DecimalField(max_digits=4, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"{self.name} - {self.small} -{self.large}"
+        return "{} - {} - {}".format({self.name}, {self.small}, {self.large})
 
 
 class Sicilian_Pizza(models.Model):
@@ -26,7 +26,7 @@ class Sicilian_Pizza(models.Model):
     large = models.DecimalField(max_digits=4, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"{self.name} - {self.small} -{self.large}"
+        return "{} - {} - {}".format({self.name}, {self.small}, {self.large})
 
 
 class Dinner_Platters(models.Model):
@@ -35,7 +35,7 @@ class Dinner_Platters(models.Model):
     large = models.DecimalField(max_digits=4, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"{self.name} - {self.small} -{self.large}"
+        return "{} - {} - {}".format({self.name}, {self.small}, {self.large})
 
 
 class Subs(models.Model):
@@ -44,7 +44,7 @@ class Subs(models.Model):
     large = models.DecimalField(max_digits=4, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"{self.name} - {self.small} -{self.large}"
+        return "{} - {} - {}".format({self.name}, {self.small}, {self.large})
 
 
 class Salad(models.Model):
@@ -52,7 +52,7 @@ class Salad(models.Model):
     price = models.FloatField(null=True)
 
     def __str__(self):
-        return f"{self.name} - {self.price}"
+        return "{} - {}".format({self.name}, {self.price})
 
 
 class Pasta(models.Model):
@@ -60,7 +60,7 @@ class Pasta(models.Model):
     price = models.FloatField(null=True)
 
     def __str__(self):
-        return f"{self.name} - {self.price}"
+        return "{} - {}".format({self.name}, {self.price})
 
 
 class Order(models.Model):
@@ -74,4 +74,4 @@ class Order(models.Model):
     topps = models.ManyToManyField(Topping, blank=True)
 
     def __str__(self):
-        return f"{self.name} # {self.topps.all()} #{self.topping_number_allowed}#{self.topping_allowed}"
+        return "{} # {} # {} # {}".format({self.name}, {self.topps.all()}, {self.topping_number_allowed}, {self.topping_allowed})
