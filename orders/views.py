@@ -22,6 +22,15 @@ def menu(request):
     }
     return render(request, 'orders/menu.html', context)
 
+def home_menu(request):
+    context = {
+        "salads": Salad.objects.all(),
+        "pastas": Pasta.objects.all(),
+        "pizza1": Regular_Pizza.objects.all(),
+        "toppings": Topping.objects.all(),
+        "pizza2": Sicilian_Pizza.objects.all()
+    }
+    return render(request, 'orders/home_menu.html', context)
 
 def add1(request, food_name, food_price):
     current = request.user
