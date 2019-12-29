@@ -14,7 +14,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 SECRET_KEY = '*w)opr_%f3=z0r=xiy-dqb-)nvkcb2ehca$qj7-rqc%v+(@&ug'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
