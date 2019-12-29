@@ -1,5 +1,18 @@
 {% extends "orders/base.html" %}
 {% block content %}
-    <h2>Home</h2>
-    
+{% load static %}
+<div class="container-1">
+    {% if user.is_authenticated %}
+    <a href="{% url 'menu' %}"><button class="button" id="but1" type="button" data-hover="Pasta"></button></a>
+    <a href="{% url 'menu' %}"><button class="button" id="but2" type="button" data-hover="Pizza"></button></a>
+    <a href="{% url 'menu' %}"><button class="button" id="but3" type="button" data-hover="Salad"></button></a>
+    {% else %}
+    <a href="{% url 'home_menu' %}"><button class="button" id="but1" type="button" data-hover="Pasta"></button></a>
+    <a href="{% url 'home_menu' %}"><button class="button" id="but2" type="button" data-hover="Pizza"></button></a>
+    <a href="{% url 'home_menu' %}"><button class="button" id="but3" type="button" data-hover="Salad"></button></a>
+    {% endif %}
+</div>
+</div>
+
+
 {% endblock content %}
